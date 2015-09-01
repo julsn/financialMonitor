@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="financeApp">
+<head>
+    <title>Finacial Dashboard</title>
+
+    <script src="Content/libs/angularjs/angular.min.js"></script>
+    <script src="Content/libs/angularjs/angular-route.min.js"></script>
+    <script src="Content/libs/angularjs/angular-sanitize.min.js"></script>
+
+    <script src="Content/libs/angular-ui/select/select.min.js"></script>
+    <script src="Content/libs/angular-ui/bootstrap/ui-bootstrap.js"></script>
+    <script src="Content/libs/angular-ui/bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="Content/libs/jquery/jquery-2.1.3.min.js"></script>
+    <script src="Content/libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="app.all.js"></script>
+
+    <link href="Content/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/libs/angular-ui/select/select.min.css" rel="stylesheet">
+
+    <link href="Content/app/css/app.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">Catcoins</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle clickable" data-toggle="dropdown" role="button" aria-expanded="false">Categorization<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#/categorizeRules/">Rules</a></li>
+                            <li><a class="clickable">Add rule</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="" ng-controller="uploadCtrl">
+                        <a class="clickable" cat-upload><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div ng-view>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div>
+                <h1>{{balanceType | firstupperletter}}</h1>
+                <h3>{{category | firstupperletter}}</h3>
+                <h4>{{fromDate | date: "dd MMM yyyy"}} - {{toDate | date: "dd MMM yyyy"}}</h4>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>SubCategory</th>
+                    <th>Amount</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in balance">
+                    <td>{{item.subCategoryName}}</td>
+                    <td style="width: 120px">{{item.amount | currency: '€ '}}</td>
+                    <td style="width: 30px">
+                        <span class="glyphicon glyphicon-th-list clickable" 
+                              aria-hidden="true"
+                              title="Show transaction list"
+                              ng-click="showDetails(item)"></span>
+                    </td>
+                    <td style="width: 30px">
+                        <span class="glyphicon glyphicon-signal clickable" 
+                              aria-hidden="true" 
+                              title="Show subcategory overview"
+                              ng-click=""></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-7">
+            <d3-pie data="balance" valuefield="amount" textfield="subCategoryName" on-click="showDetails(item)"></d3-pie>
+        </div>
+    </div>
+</div>
+

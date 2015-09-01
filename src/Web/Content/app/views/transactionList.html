@@ -1,0 +1,39 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="transaction in transactions">
+                    <td style="width: 110px">{{transaction.date | date : "dd MMM yyyy"}}</td>
+                    <td>{{transaction.credit > 0 ? "-" + transaction.credit : transaction.debit }}</td>
+                    <td>{{transaction.description}}</td>
+                    <td>
+                        <ui-select ng-model="transaction.subCategory"
+                                   ng-disabled="disabled"
+                                   ng-change="setCategory(transaction);"
+                                   style="width: 300px;"
+                                   title="Choose...">
+                            <ui-select-match placeholder="Select category...">{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices group-by="'category'" repeat="cat in categories | filter: {name: $select.search}">
+                                <div ng-bind-html="cat.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+
+                        <!--<select ng-model="transaction.category"
+                                    ng-change="setCategory(transaction);"
+                                    ng-options="category.name group by category.category for category in categories track by category.id"></select>-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

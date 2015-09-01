@@ -1,0 +1,46 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <h3>Categorize rules</h3>
+        </div>
+        <div class="col-md-2">
+            <div class="pull-right">
+                <button class="btn btn-success" ng-click="addRule()">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Transactio type</th>
+                        <th>Category</th>
+                        <th>Data</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="rule in rules">
+                        <td>{{rule.transactionType}}</td>
+                        <td>{{rule.category.group.name}} / {{rule.category.name}}</td>
+                        <td>{{rule.data}}</td>
+                        <td style="width: 40px">
+                            <span class="glyphicon glyphicon-pencil clickable"
+                                  aria-hidden="true"
+                                  title="Edit"
+                                  ng-click="edit(rule)"></span>
+                        </td>
+                        <td style="width: 40px">
+                            <span class="glyphicon glyphicon-remove clickable"
+                                  aria-hidden="true"
+                                  title="Remove"
+                                  ng-click="remove(rule)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

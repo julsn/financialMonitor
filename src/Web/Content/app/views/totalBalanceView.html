@@ -1,0 +1,48 @@
+﻿<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-8">
+            <d3-bars data="balance" chart-height="400" chart-width="800" on-click="showDetails(item.type, item.year, item.month)"></d3-bars>
+        </div>
+
+        <div class="col-md-4">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Debit</th>
+                    <th>Credit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in balance">
+                    <td>{{item.period}}</td>
+                    <td><a class="clickable" ng-click="showDetails('debit', item.year, item.month)">{{item.debit | currency: '€ '}}</a></td>
+                    <td><a class="clickable" ng-click="showDetails('credit', item.year, item.month)">{{item.credit | currency: '€ '}}</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="balance-time-switch center-block">
+            <table>
+                <tr>
+                    <td>
+                        <a ng-click="moveBack();">&lt;</a>
+                    </td>
+                    <td ng-repeat="year in balanceYears">
+                        <a ng-click="openYear(year);">{{year}}</a>
+                    </td>
+                    <td>
+                        <a ng-click="moveForward();">&gt;</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
